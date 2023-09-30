@@ -1,29 +1,120 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Countdown Timer with Controls</title>
     <style>
-        #timer {
-            font-size: 24px;
+        body {
+            font-family: Arial, sans-serif;
+            color: #ccc;
+            background-image: url(./background.jpeg);
+        }
+
+        .container {
             text-align: center;
             margin: 20px;
         }
+
+        #timer {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
         #controls {
             text-align: center;
         }
+
+        #controls button {
+            font-size: 16px;
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #controls button:hover {
+            background-color: #0056b3;
+        }
+
+        #time-input {
+            margin: 10px 0;
+        }
+
+        #time-input label {
+            margin-right: 10px;
+        }
+
+        #time-input input[type="number"] {
+            width: 50px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        #set-time-button {
+            padding: 5px 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        #set-time-button:hover {
+            background-color: #1e7e34;
+        }
+
+
+        #timer{
+            font-size: 200px;
+            margin-top: 20vh;
+            border: 5px purple solid;
+            padding: 20vh;
+        }
+
+        .timer-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            
+        }
+
+        #controls{
+            margin: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #time-input{
+            margin-bottom: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
+
 <body>
-    <div>
-        <label for="minutesInput">Minutes:</label>
-        <input type="number" id="minutesInput" min="0" step="1" value="0">
-        <label for="secondsInput">Seconds:</label>
-        <input type="number" id="secondsInput" min="0" step="1" value="0">
-        <button onclick="setCustomTime()">Set Time</button>
+    <div class="container">
+        <div id="time-input">
+            <label for="minutesInput">Minutes:</label>
+            <input type="number" id="minutesInput" min="0" step="1" value="0">
+            <label for="secondsInput">Seconds:</label>
+            <input type="number" id="secondsInput" min="0" step="1" value="0">
+            <button id="set-time-button" onclick="setCustomTime()">Set Time</button>
+        </div>
+
+        <div class="timer-container">
+            <div id="timer">00:00</div>
+        </div>
+
+       
     </div>
-    
-    <div id="timer">00:00</div>
-    
     <div id="controls">
         <button onclick="startTimer()">Start</button>
         <button onclick="pauseTimer()">Pause</button>
@@ -52,7 +143,7 @@
 
         function startTimer() {
             if (!timerInterval) {
-                timerInterval = setInterval(function() {
+                timerInterval = setInterval(function () {
                     seconds--;
                     if (seconds < 0) {
                         if (minutes > 0) {
@@ -82,4 +173,5 @@
         }
     </script>
 </body>
+
 </html>
